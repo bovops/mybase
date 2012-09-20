@@ -1,10 +1,9 @@
+# -*- coding: utf8 -*-
 # Django settings for project mybase.
-from os.path import abspath, dirname, basename, join, realpath
+from os.path import dirname, join
 import sys
 
-PROJECT_PATH = abspath(dirname(__file__))
-PROJECT_NAME = basename(PROJECT_PATH)
-PROJECT_PATH = realpath(dirname(__file__))
+PROJECT_PATH = dirname(__file__)
 
 sys.path.insert(0, join(PROJECT_PATH, "apps"))
 
@@ -17,6 +16,8 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 DATABASES = {
     'default': {
@@ -115,6 +116,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    join(PROJECT_PATH, 'templates')
 )
 
 INSTALLED_APPS = (
@@ -129,6 +131,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'south',
+    'main',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -159,3 +162,5 @@ LOGGING = {
         },
     }
 }
+
+SESSION_COOKIE_AGE = 3600
