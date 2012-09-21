@@ -8,7 +8,7 @@ import random
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        print "make clients..."
+        print "make main..."
         self.make_clients()
         print "done"
 

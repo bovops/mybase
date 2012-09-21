@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Clients</h2>
+    <ul>
+        {% for client in clients %}
+        <li><a href="{% url client_detail client.id %}">{{ client.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if paginator.num_pages > 1 %}
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">&larr;</a>
+        {% endif %}
+        {{ paginator.number }}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">&rarr;</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
