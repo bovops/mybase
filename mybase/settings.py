@@ -19,10 +19,13 @@ MANAGERS = ADMINS
 
 INTERNAL_IPS = ('127.0.0.1',)
 
+DB_NAME = join(PROJECT_PATH, 'default.db')
+#DB_NAME = '/tmp/default.db'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': join(PROJECT_PATH, 'default.db'),                      # Or path to database file if using sqlite3.
+        'NAME': DB_NAME,                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
