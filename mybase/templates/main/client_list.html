@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <form id="csrf_token" style="display:none">{% csrf_token %}</form>
     <h2>Clients</h2>
     <ul>
         {% for client in clients %}
-        <li><a href="{% url client_detail client.id %}">{{ client.name }}</a></li>
+            <li>
+            <a href="{% url client_detail client.id %}">{{ client.name }}</a>
+            <a href="{% url client_detail client.id %}delete" data-confirm="Вы уверены?" data-method="delete" rel=”nofollow“>удалить</a>
+            </li>
         {% endfor %}
     </ul>
 

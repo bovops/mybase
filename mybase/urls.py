@@ -20,4 +20,5 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     url(r'^clients/$', ClientList.as_view(), name='clients_list'),
     url(r'^clients/(?P<pk>\d+)/$', ClientDetail.as_view(), name='client_detail'),
+    url(r'^clients/(?P<pk>\d+)/delete$', ClientDelete.as_view(), name='client_delete'),
 )
